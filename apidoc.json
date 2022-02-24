@@ -1,0 +1,13 @@
+{
+  "name": "ElasticSearch API Documents",
+  "version": "1.0.0",
+  "description": "ElasticSearch API Documents Description",
+  "title": "API Document",
+  "url": "https://api-staging.818ps.com",
+  "template": {
+    "forceLanguage": "zh_cn",
+    "withCompare": true,
+    "withGenerator": true,
+    "aloneDisplay": false
+  }
+}

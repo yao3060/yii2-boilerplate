@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+.project
+Thumbs.db
+.history
+
+*.swp
+*.swo
+
+.env
+.env.bak
+*.cache
+
+.scannerwork/*
+sonar-project.properties

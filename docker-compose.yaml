@@ -1,0 +1,12 @@
+version: "2.3"
+
+services:
+  php:
+    container_name: ${COMPOSE_PROJECT_NAME}_php
+    restart: always
+    env_file: .env
+
+  codecept:
+    container_name: ${COMPOSE_PROJECT_NAME}_codecept
+    restart: always
+    env_file: .env

@@ -1,0 +1,48 @@
+version: "2.3"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
+      args:
+        ALPINE_LINUX_MIRROR: ${ALPINE_LINUX_MIRROR}
+        APP_ENV: ${APP_ENV}
+      target: php
+      extra_hosts:
+        - codeload.github.com:192.30.255.121
+    restart: "no"
+    user: ${DOCKER_HOST_UID}:www-data
+    environment:
+      APP_DEBUG: "true"
+      XDEBUG_MODE: "debug"
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - default
+      - base_share_network
+
+  codecept:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile.php74
+      args:
+        ALPINE_LINUX_MIRROR: ${ALPINE_LINUX_MIRROR}
+        APP_ENV: ${APP_ENV}
+      target: php74
+      extra_hosts:
+        - codeload.github.com:192.30.255.121
+    restart: "no"
+    user: ${DOCKER_HOST_UID}:www-data
+    environment:
+      APP_DEBUG: "true"
+      XDEBUG_MODE: "debug"
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - default
+      - base_share_network
+
+networks:
+  base_share_network:
+    external: true

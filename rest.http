@@ -1,0 +1,12 @@
+@BASE_URL = http://localhost:8081
+
+### Test
+GET {{BASE_URL}}/?test=1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+X-UserId: 1111
+X-Username: YAO
+X-UserType: 1
+X-Roles: user
+X-FORWARDED-FOR: 1.1.1.1
+X-ORIGINAL-FORWARDED-FOR: 2.2.2.2
